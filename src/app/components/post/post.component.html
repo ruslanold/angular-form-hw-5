@@ -1,0 +1,13 @@
+<div *ngIf="posts">
+  <select [(ngModel)]="postId" >
+    <option *ngFor="let post of posts; index as i;" [value]="i">
+      {{post.title}}
+    </option>
+  </select>
+  <ul *ngIf="postId >= 0">
+    <li>id: {{posts[postId].nid}}</li>
+    <li>title: {{posts[postId].title}}</li>
+    <li>created: {{posts[postId].created}}</li>
+    <li>field_answer_count: {{posts[postId].field_answer_count}}</li>
+  </ul>
+</div>

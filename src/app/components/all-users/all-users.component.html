@@ -1,0 +1,13 @@
+<label>Search:</label>
+<input type="text" [(ngModel)]="query" (ngModelChange)="search(autocomplete)" />
+<div class="autocomplete" #autocomplete>
+  <div 
+    class="item" 
+    *ngFor="let user of result; index as i" 
+    [innerHTML]="user.name"
+    (click)="userId=user.uid; query=users[user.index].name; autocomplete.style.display = 'none'"
+  ></div>
+</div>
+<div *ngIf="userId">
+  <app-post [userId]="userId"></app-post>
+</div>
